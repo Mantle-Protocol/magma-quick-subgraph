@@ -1,0 +1,28 @@
+specVersion: 0.0.4
+description: GagmaGraphQuickstart
+repository: https://github.com/Mantle-Protocol/magma-quick-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ERC20
+    network: mainnet
+    source:
+      address: '0x04e9e97a509520ff31f9dfdceab028d8762f5b6a'
+      abi: ERC20
+      startBlock: 3188
+
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ERC20
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      
+      file: ./src/mapping.ts

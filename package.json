@@ -1,0 +1,22 @@
+{
+  "name": "magma-graph-quickstart",
+  "version": "0.1.0",
+  "repository": "https://github.com/Mantle-Protocol/magma-quick-subgraph",
+  "license": "MIT",
+  "scripts": {
+    "create-subgraph": "graph create GigaGraph2 --node https://api.subgraph.testnet.magma.foundation/",
+    "create-local": "graph create GigaGraph2 --node http://127.0.0.1:8020",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy GigaGraph2 --ipfs https://api.thegraph.com/ipfs/ --node https://api.subgraph.testnet.magma.foundation",
+    "deploy-local": "graph deploy example --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.30.2",
+    "@graphprotocol/graph-ts": "^0.27.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0"
+  }
+}
